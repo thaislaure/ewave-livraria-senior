@@ -1,0 +1,95 @@
+<div class="panel-content">
+  <h3>Cadastar Instituição</h3>
+</div>
+<div class="panel-body">
+  <div class="card">
+    <form
+      class="needs-validation"
+      [formGroup]="form"
+      (ngSubmit)="submit()"
+      [ngClass]="{ 'was-validated': submitted }"
+      novalidate
+    >
+      <div class="formulario">
+        <div class="row">
+          <div class="col-md-12">
+            <label for="titulo">Nome</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nome"
+              formControlName="nome"
+              required
+            />
+            <div class="invalid-feedback">Nome é obrigatório</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label for="titulo">Cnpj</label>
+            <input
+              type="text"
+              class="form-control"
+              id="cnpj"
+              formControlName="cnpj"
+              required
+            />
+            <div class="invalid-feedback">Cnpj é obrigatório</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label for="titulo">Endereço</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="endereco"
+              required
+            />
+            <div class="invalid-feedback">Endereço é obrigatório</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label for="titulo">Telefone</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="telefone"
+              required
+            />
+            <div class="invalid-feedback">Telefone é obrigatório</div>
+          </div>
+        </div>
+      </div>
+      <div class="acoes">
+        <div class="row" style="width: 30%">
+          <div class="col-md-4">
+            <button
+              type="submit"
+              class="btn btn-success"
+              disableButtonDuringRequest
+            >
+              <i class="fa fa-check"></i>
+              Salvar
+            </button>
+          </div>
+          <div class="col-md-4">
+            <button type="button" class="btn btn-danger" (click)="cancelar()">
+              <i class="zmdi zmdi-close"></i> Cancelar
+            </button>
+          </div>
+          <div class="col-md-4">
+            <button
+              type="button"
+              class="btn btn-light"
+              (click)="irParaTelaDeConsulta()"
+            >
+              <i class="zmdi zmdi-long-arrow-left"></i> Voltar
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,137 @@
+<div class="panel-content">
+  <h3>Cadastar Usuário</h3>
+</div>
+<div class="panel-body">
+  <div class="card">
+    <form
+      class="needs-validation"
+      [formGroup]="form"
+      (ngSubmit)="submit()"
+      [ngClass]="{ 'was-validated': submitted }"
+      novalidate
+    >
+      <div class="formulario">
+        <div class="row">
+          <div class="col-md-6" >
+            <label for="titulo">Nome</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nome"
+              formControlName="nome"
+              required
+            />
+            <div class="invalid-feedback">Nome é obrigatório</div>
+          </div>
+          <div class="col-md-6">
+            <label for="titulo">Cpf</label>
+            <input
+              type="text"
+              class="form-control"
+              id="cpf"
+              formControlName="cpf"
+              required
+            />
+            <div class="invalid-feedback">Cpf é obrigatório</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label for="titulo">Endereço</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="endereco"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label for="titulo">Telefone</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="telefone"
+              required
+            />
+            <div class="invalid-feedback">Telefone é obrigatório</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label for="instituicao">Instituição de Ensino</label>
+            <select
+              class="form-select"
+              id="instituicao"
+              formControlName="instituicaoId"
+            >
+              <option selected disabled value="">
+                Selecione uma instituição
+              </option>
+              <ng-container *ngIf="instituicoes && instituicoes.length > 0">
+                <option
+                  *ngFor="let instituicao of instituicoes"
+                  [value]="instituicao.instituicaoId"
+                >
+                  {{ instituicao.nome }}
+                </option>
+              </ng-container>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label for="titulo">E-mail</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="email"
+              required
+            />
+            <div class="invalid-feedback">E-mail é obrigatório</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label for="titulo">Senha</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="senha"
+              required
+            />
+            <div class="invalid-feedback">Senha é obrigatório</div>
+          </div>
+        </div>
+      </div>
+      <div class="acoes">
+        <div class="row" style="width: 30%">
+          <div class="col-md-4">
+            <button
+              type="submit"
+              class="btn btn-success"
+              disableButtonDuringRequest
+            >
+              <i class="fa fa-check"></i>
+              Salvar
+            </button>
+          </div>
+          <div class="col-md-4">
+            <button type="button" class="btn btn-danger" (click)="cancelar()">
+              <i class="zmdi zmdi-close"></i> Cancelar
+            </button>
+          </div>
+          <div class="col-md-4">
+            <button
+              type="button"
+              class="btn btn-light"
+              (click)="irParaTelaDeConsulta()"
+            >
+              <i class="zmdi zmdi-long-arrow-left"></i> Voltar
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
