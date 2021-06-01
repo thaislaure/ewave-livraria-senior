@@ -67,7 +67,9 @@ docker-compose up
 
 Após :
 
-api : clicando aqui.
+swagger : http://localhost:8080/swagger/index.html
+
+front-end: http://localhost/
 
 
 

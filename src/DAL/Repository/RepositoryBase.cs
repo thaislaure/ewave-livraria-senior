@@ -7,7 +7,7 @@ namespace DAL.Repository
         public string GetConnectionString()
         {
            // return "Server= 192.168.0.10\\SQLEXPRESS;Database=Livraria;User Id=sa;Password=c6!Hc#;";
-            return "Server= 172.27.1.4\\SQLEXPRESS;Database=Livraria;User Id=sa;Password=123;";
+            return @"Server=database;Database=Livraria;User Id=sa;Password=123@Abc@#!X;";
         }
     }
 }

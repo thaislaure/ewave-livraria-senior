@@ -1,8 +1,59 @@
 version: '3.4'
 
-services: 
-  bd: 
-    container_name: bd
+services:
+  api:
+    container_name: api
+    image: ${DOCKER_REGISTRY-}livraria
     build:
-      context: .
-      dockerfile: src/bd/Dockerfile  
+      context: ./src/ui
+      dockerfile: Dockerfile
+    depends_on:
+        - database 
+    networks:
+        livraria-networks:
+            ipv4_address: 10.5.0.5
+    ports:
+      - "8080:80"
+      - "44328:443"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+
+  projetofrontend: 
+    container_name: frontend
+    build:
+      context: ./src/ProjetoFrontEnd
+      dockerfile: Dockerfile
+    networks:
+        livraria-networks:
+            ipv4_address: 10.5.0.4
+    ports:
+      - "80:80" 
+
+  database:
+    container_name: sqlserver  
+    build:
+      context: ./database
+      dockerfile: Dockerfile    
+    networks:
+        livraria-networks:
+            ipv4_address: 10.5.0.6
+    volumes:
+      - dbdata:/var/opt/mssql/data
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Express
+      - SA_PASSWORD=123@Abc@#!X
+    ports:
+      - "1433:1433"
+       
+networks:
+  livraria-networks:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
+         gateway: 10.5.0.1
+
+volumes:
+  dbdata:
