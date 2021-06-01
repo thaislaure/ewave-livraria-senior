@@ -1,0 +1,8 @@
+version: '3.4'
+
+services: 
+  bd: 
+    container_name: bd
+    build:
+      context: .
+      dockerfile: src/bd/Dockerfile  
