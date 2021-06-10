@@ -5,7 +5,7 @@ ewave-livraria-senior
 Tecnologias implementadas:
 
 Back-end:
-- ASP.NET Core 3.1 (com .NET Core 3.1)
+- .NET Core 3.1
 - ASP.NET MVC Core
 - DI nativo do .NET Core
 - Dapper
