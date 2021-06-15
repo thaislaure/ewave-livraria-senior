@@ -96,7 +96,6 @@ export class GeneroComponent implements OnInit {
     if (confirm("tem certeza que deseja excluir o cadastro ? ")) {
       this.generoService.excluir(id).subscribe(response => {
         if (response) {
-          console.log(response);
           alert('excluido com sucesso')
           this.obter();
           this.fecharModal();

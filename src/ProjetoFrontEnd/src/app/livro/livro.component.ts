@@ -67,7 +67,6 @@ export class LivroComponent implements OnInit {
   }
 
   submit() {
-    debugger
     if (this.form.valid) {
       this.submitted = false;
       this.salvar();
@@ -76,8 +75,7 @@ export class LivroComponent implements OnInit {
     this.submitted = true;
   }
 
-  salvar() {
-    debugger
+  salvar() {r
     const model = this.form.getRawValue();
     model.generoId = Number(model.generoId);
     model.autorId = Number(model.autorId);
@@ -102,7 +100,6 @@ export class LivroComponent implements OnInit {
   abrirModal(livro?: any) {
     this.form.reset();
 
-    debugger
     if (livro) {
       const { livroId } = livro;
 

@@ -58,7 +58,6 @@ export class AutorComponent implements OnInit {
 
   salvar() {
     const model = this.form.getRawValue();
-    debugger
     const request = this.autorId
       ? this.autorService.alterar(this.autorId, model)
       : this.autorService.criar(model);
@@ -71,7 +70,6 @@ export class AutorComponent implements OnInit {
 
   abrirModal(autor?: any) {
     this.form.reset();
-debugger
     if (autor) {
       const { autorId, nome } = autor;
 
